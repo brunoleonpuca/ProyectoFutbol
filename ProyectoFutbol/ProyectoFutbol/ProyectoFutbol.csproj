@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowserSetup\BrowserActions.cs" />
+    <Compile Include="BrowserSetup\BrowserDriver.cs" />
     <Compile Include="Builders\LeaguesBuilder\LeagueActions.cs" />
     <Compile Include="Builders\LeaguesBuilder\LeagueElements.cs" />
     <Compile Include="Builders\LeaguesBuilder\LeaguePage.cs" />
@@ -70,9 +72,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BrowserSetup\" />
     <Folder Include="Builders\PlayersBuilder\" />
     <Folder Include="Builders\TeamsBuilder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UI\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.92.0.4515.10700\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.92.0.4515.10700\build\Selenium.WebDriver.ChromeDriver.targets')" />
