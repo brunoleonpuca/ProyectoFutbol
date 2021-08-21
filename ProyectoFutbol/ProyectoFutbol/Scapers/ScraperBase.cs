@@ -8,13 +8,17 @@
     using NUnit.Framework;
     using OpenQA.Selenium;
     using ProyectoFutbol.BrowserSetup;
+    using ProyectoFutbol.Builders.Common;
 
-    public class ScraperBase
+    public class ScraperBase : BrowserDriver
     {
         public static BrowserDriver selectBrowser = new BrowserDriver();
         public static IWebDriver driver = selectBrowser.SelectDefaultBrowser();
         public BrowserActions actions = new BrowserActions(driver);
         public Config config = new Config();
+
+        public MainPageActions onMainPageActions = new MainPageActions(driver);
+
 
         [OneTimeSetUp]
         public void BeforeAll()

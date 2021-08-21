@@ -59,9 +59,11 @@
   <ItemGroup>
     <Compile Include="BrowserSetup\BrowserActions.cs" />
     <Compile Include="BrowserSetup\BrowserDriver.cs" />
+    <Compile Include="Builders\Common\MainPageActions.cs" />
+    <Compile Include="Builders\Common\MainPageElements.cs" />
     <Compile Include="Builders\LeaguesBuilder\LeagueActions.cs" />
     <Compile Include="Builders\LeaguesBuilder\LeagueElements.cs" />
-    <Compile Include="Builders\LeaguesBuilder\LeaguePage.cs" />
+    <Compile Include="Builders\LeaguesBuilder\League.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scapers\Scraper.cs" />
