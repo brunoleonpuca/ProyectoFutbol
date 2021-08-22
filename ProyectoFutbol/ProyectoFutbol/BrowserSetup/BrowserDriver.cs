@@ -23,9 +23,11 @@
             {
                 if (configuration.DefaultBrowser.Equals(DriverConsts.Chrome))
                 {
-                    //There must be a way to load Adblock with the Chrome
                     options = new ChromeOptions();
+
+                    //Loads adblock to chromedriver
                     options.AddExtension("C:\\repos\\ChromeExtensions\\4.35.0_0.crx");
+
                     driver = new ChromeDriver(options);
                     driver.Manage().Window.Maximize();
                 }

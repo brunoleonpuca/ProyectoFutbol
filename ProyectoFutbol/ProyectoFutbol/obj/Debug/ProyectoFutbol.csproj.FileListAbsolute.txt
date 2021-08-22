@@ -26,3 +26,5 @@ C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.c
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.csproj.CopyComplete
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.pdb
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Newtonsoft.Json.dll
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Newtonsoft.Json.xml

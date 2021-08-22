@@ -9,6 +9,8 @@
     using OpenQA.Selenium;
     using ProyectoFutbol.BrowserSetup;
     using ProyectoFutbol.Builders.Common;
+    using ProyectoFutbol.Builders.LeaguesBuilder;
+    using ProyectoFutbol.Builders.TeamsBuilder;
 
     public class ScraperBase : BrowserDriver
     {
@@ -18,7 +20,8 @@
         public Config config = new Config();
 
         public MainPageActions onMainPageActions = new MainPageActions(driver);
-
+        public LeagueActions onLeagueActions = new LeagueActions(driver);
+        public TeamActions onTeamActions = new TeamActions(driver);
 
         [OneTimeSetUp]
         public void BeforeAll()

@@ -2,29 +2,45 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Diagnostics;
+    using Newtonsoft.Json;
     using NUnit.Framework;
+    using ProyectoFutbol.Builders.LeaguesBuilder;
 
     public class Scraper : ScraperBase
     {
+        private List<League> leagues = new List<League>();
 
         [Test]
         public void GetLeagues()
         {
-            for (int i = 0; i < LeagueConsts.consts.Count; i++)
+            try
             {
-                onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
-                onMainPageActions.ClickSearchButton();
+                for (int i = 0; i < LeagueConsts.consts.Count; i++)
+                {
+                    onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
+                    onMainPageActions.ClickSearchButton();
+                    leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
+                    onLeagueActions.ClickLeague();
+                    leagues[i].teams = onTeamActions.GetTeams();
 
+                }
+            }
+            catch
+            {
 
             }
-            
+            finally
+            {
+                //Write the data gathered
+                for (int i = 0; i < LeagueConsts.consts.Count; i++)
+                {
+                    string output = JsonConvert.SerializeObject(leagues[i]);
+                    //League deserializedProduct = JsonConvert.DeserializeObject<League>(output);
+                    Debug.WriteLine(output);
+                }
+            }
         }
-
-
-
     }
 
     public static class LeagueConsts

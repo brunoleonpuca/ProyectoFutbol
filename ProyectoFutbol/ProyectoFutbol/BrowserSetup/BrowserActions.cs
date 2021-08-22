@@ -106,34 +106,6 @@
         }
 
         /// <summary>
-        /// Clicks the existing element in the URL
-        /// </summary>
-        public void ClickElement(IWebElement element)
-        {
-            try
-            {
-                element.Click();
-            }
-            catch (Exception e)
-            {
-                if (e is ElementNotVisibleException)
-                {
-                    throw new Exception(ScraperActionsExceptionsConsts.ElementIsNotVisible);
-                }
-                else if (e is StaleElementReferenceException)
-                {
-                    throw new Exception(ScraperActionsExceptionsConsts.StaleElementReferenceException);
-                }
-                else if (e.Message.Contains(ScraperActionsExceptionsConsts.OtherElementIsClickedMessage))
-                {
-                    throw new Exception(ScraperActionsExceptionsConsts.OtherElementIsClickedException);
-                }
-
-                throw e;
-            }
-        }
-
-        /// <summary>
         /// Type a text into element, If forceClear is false, it doesn't clear the input before typing
         /// </summary>
         /// <param name="locator"></param>
@@ -145,39 +117,6 @@
             for (int i = 0; i < attempts; i++)
             {
                 IWebElement element = driver.FindElement(locator);
-                try
-                {
-                    if (forceClear)
-                    {
-                        element.Click();
-                        element.SendKeys(Keys.Control + "a");
-                        element.SendKeys(Keys.Delete);
-                    }
-                    else element.Clear();
-                    element.SendKeys(text);
-
-                    return;
-                }
-                catch (Exception e)
-                {
-                    if (i < 9) sleep();
-                    else throw e;
-                }
-
-            }
-        }
-
-        /// <summary>
-        /// Type a text into element, If forceClear is false, it doesn't clear the input before typing
-        /// </summary>
-        /// <param name="locator"></param>
-        /// <param name="text"></param>
-        /// <param name="forceClear"></param>
-        /// <param name="attempts"></param>
-        public void SendKeysToElement(IWebElement element, string text, bool forceClear = false, int attempts = 10)
-        {
-            for (int i = 0; i < attempts; i++)
-            {
                 try
                 {
                     if (forceClear)
@@ -259,35 +198,6 @@
         #endregion
 
         #region Waiters
-        /// <summary>
-        /// Wait until the element is displayed in the URL
-        /// </summary>
-        /// <param name="locator"></param>
-        /// <param name="attempts"></param>
-        /// <returns></returns>
-        public bool WaitUntilElementIsDisplayed(IWebElement element, int attempts = 2)
-        {
-            for (int i = 0; i < attempts; i++)
-            {
-                try
-                {
-                    if (element.Displayed) return true;
-                    else
-                    {
-                        for (int j = 0; j < attempts * 10; j++)
-                        {
-                            if (element.Displayed) return true;
-                            sleep();
-                        }
-                    }
-                }
-                catch (System.Exception) { sleep(); }
-            }
-
-            return false;
-            throw new Exception(ScraperActionsExceptionsConsts.ElementIsNotDisplayed);
-        }
-
         public IList<IWebElement> WaitUntilElementsAreDisplayed(By locator, int attempts = 2)
         {
             try
@@ -295,26 +205,6 @@
                 elements = driver.FindElements(locator);
 
                 if (elements[0].Displayed || elements[0].Enabled) return elements;
-                else
-                {
-                    for (int j = 0; j < attempts * 10; j++)
-                    {
-                        if (elements[1].Displayed || elements[1].Enabled) return elements;
-                        sleep();
-                    }
-                }
-            }
-            catch (System.Exception) { sleep(); }
-
-            return null;
-            throw new Exception(ScraperActionsExceptionsConsts.ElementIsNotDisplayed);
-        }
-
-        public IList<IWebElement> WaitUntilElementsAreDisplayed(IWebElement element, int attempts = 2)
-        {
-            try
-            {
-                if (element.Displayed || element.Enabled) return elements;
                 else
                 {
                     for (int j = 0; j < attempts * 10; j++)
