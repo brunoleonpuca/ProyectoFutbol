@@ -9,7 +9,7 @@
 
     public class Scraper : ScraperBase
     {
-        private List<League> leagues = new List<League>();
+        private readonly List<League> leagues = new List<League>();
 
         [Test]
         public void GetLeagues()
@@ -23,7 +23,15 @@
                     leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
                     onLeagueActions.ClickLeague();
                     leagues[i].teams = onTeamActions.GetTeams();
+                    
+                    for (int j = 0; j < leagues[i].teams.Count; j++)
+                    {
+                        onTeamActions.ClickTeam(j);
+                        leagues[i].teams[j].players = onPlayerActions.GetPlayers();
+                        onMainPageActions.GoBack();
+                    }
 
+                    onMainPageActions.ClickGoUp();
                 }
             }
             catch

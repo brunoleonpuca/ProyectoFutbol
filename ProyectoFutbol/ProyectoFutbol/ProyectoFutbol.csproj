@@ -67,6 +67,9 @@
     <Compile Include="Builders\LeaguesBuilder\LeagueActions.cs" />
     <Compile Include="Builders\LeaguesBuilder\LeagueElements.cs" />
     <Compile Include="Builders\LeaguesBuilder\League.cs" />
+    <Compile Include="Builders\PlayersBuilder\Player.cs" />
+    <Compile Include="Builders\PlayersBuilder\PlayerActions.cs" />
+    <Compile Include="Builders\PlayersBuilder\PlayerElements.cs" />
     <Compile Include="Builders\TeamsBuilder\Team.cs" />
     <Compile Include="Builders\TeamsBuilder\TeamActions.cs" />
     <Compile Include="Builders\TeamsBuilder\TeamElements.cs" />
@@ -79,9 +82,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Builders\PlayersBuilder\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="UI\index.html" />
   </ItemGroup>

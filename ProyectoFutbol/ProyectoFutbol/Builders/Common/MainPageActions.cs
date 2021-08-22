@@ -19,13 +19,18 @@
 
         public void SendKeysToSearchBar(string league)
         {
-            ScrollIntoViewOfElement(MainPageElements.MainPageLocators.searchBarInput);
+            WaitUntilElementsAreDisplayed(MainPageElements.MainPageLocators.searchBarInput);
             SendKeysToElement(MainPageElements.MainPageLocators.searchBarInput, league);
         }
 
         public void ClickSearchButton()
         {
             ClickElement(MainPageElements.MainPageLocators.searchButton);
+        }
+
+        public void ClickGoUp()
+        {
+            ClickElement(MainPageElements.MainPageLocators.goUp);
         }
 
     }

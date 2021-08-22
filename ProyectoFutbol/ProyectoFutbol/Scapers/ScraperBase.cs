@@ -10,6 +10,7 @@
     using ProyectoFutbol.BrowserSetup;
     using ProyectoFutbol.Builders.Common;
     using ProyectoFutbol.Builders.LeaguesBuilder;
+    using ProyectoFutbol.Builders.PlayersBuilder;
     using ProyectoFutbol.Builders.TeamsBuilder;
 
     public class ScraperBase : BrowserDriver
@@ -22,6 +23,7 @@
         public MainPageActions onMainPageActions = new MainPageActions(driver);
         public LeagueActions onLeagueActions = new LeagueActions(driver);
         public TeamActions onTeamActions = new TeamActions(driver);
+        public PlayerActions onPlayerActions = new PlayerActions(driver);
 
         [OneTimeSetUp]
         public void BeforeAll()
