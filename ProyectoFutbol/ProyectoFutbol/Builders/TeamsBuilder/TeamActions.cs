@@ -46,11 +46,6 @@
         {
             ClickElement(TeamElements.TeamLocators.TeamNameButton(i + 1));
         }
-
-        public void ReturnToListOfTeams()
-        {
-            GoBack();
-        }
     }
 
     public static class TeamExceptions

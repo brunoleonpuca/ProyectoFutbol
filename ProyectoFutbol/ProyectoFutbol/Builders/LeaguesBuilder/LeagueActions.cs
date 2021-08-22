@@ -18,6 +18,7 @@
         public League GetLeagueInformation(string leagueName)
         {
             League league = new League();
+
             try
             {
                 league.name = FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueByColumn((int)League.columnValues.name))[0].Text;

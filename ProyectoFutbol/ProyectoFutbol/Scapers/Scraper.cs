@@ -1,6 +1,5 @@
 ﻿namespace ProyectoFutbol.Scaper
 {
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using Newtonsoft.Json;
@@ -23,7 +22,7 @@
                     leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
                     onLeagueActions.ClickLeague();
                     leagues[i].teams = onTeamActions.GetTeams();
-                    
+
                     for (int j = 0; j < leagues[i].teams.Count; j++)
                     {
                         onTeamActions.ClickTeam(j);
