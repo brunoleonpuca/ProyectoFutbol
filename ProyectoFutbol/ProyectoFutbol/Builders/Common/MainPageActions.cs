@@ -14,18 +14,18 @@
 
         public void SendKeysToSearchBar(string league)
         {
-            WaitUntilElementsAreDisplayed(MainPageElements.MainPageLocators.searchBarInput);
-            SendKeysToElement(MainPageElements.MainPageLocators.searchBarInput, league);
+            WaitUntilElementsAreDisplayed(MainPageLocators.searchBarInput);
+            SendKeysToElement(MainPageLocators.searchBarInput, league);
         }
 
         public void ClickSearchButton()
         {
-            ClickElement(MainPageElements.MainPageLocators.searchButton);
+            ClickElement(MainPageLocators.searchButton);
         }
 
         public void ClickGoUp()
         {
-            ClickElement(MainPageElements.MainPageLocators.goUp);
+            ClickElement(MainPageLocators.goUp);
         }
 
     }

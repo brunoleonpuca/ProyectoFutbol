@@ -17,13 +17,13 @@
 
         public List<Team> GetTeams()
         {
-            int teamsCount = FindTryMultipleElements(TeamElements.TeamLocators.TeamsCount).Count;
+            int teamsCount = FindTryMultipleElements(TeamLocators.TeamsCount).Count;
             List<Team> teams = new List<Team>();
             for (int i = 1; i < teamsCount + 1; i++)
             {
                 Team team = new Team();
-                IWebElement nameElement = FindTryMultipleElements(TeamElements.TeamLocators.TeamName(i))[0];
-                IWebElement marketValueElement = FindTryMultipleElements(TeamElements.TeamLocators.TeamMarketValue(i))[0];
+                IWebElement nameElement = FindTryMultipleElements(TeamLocators.TeamName(i))[0];
+                IWebElement marketValueElement = FindTryMultipleElements(TeamLocators.TeamMarketValue(i))[0];
                 
                 try
                 {
@@ -44,7 +44,7 @@
 
         public void ClickTeam(int i)
         {
-            ClickElement(TeamElements.TeamLocators.TeamNameButton(i + 1));
+            ClickElement(TeamLocators.TeamNameButton(i + 1));
         }
     }
 

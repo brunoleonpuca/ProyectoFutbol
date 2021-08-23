@@ -21,12 +21,12 @@
 
             try
             {
-                league.name = FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueByColumn((int)League.columnValues.name))[0].Text;
-                league.country = FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueCountry)[0].GetAttribute("alt");
-                league.clubQuantity = int.Parse(FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueByColumn((int)League.columnValues.clubQuantity))[0].Text);
-                league.playerQuantity = int.Parse(FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueByColumn((int)League.columnValues.playerQuantity))[0].Text);
-                league.totalMarketValue = FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueByColumn((int)League.columnValues.totalMarketValue))[0].Text;
-                league.continent = FindTryMultipleElements(LeagueElements.LeagueLocators.LeagueValueByColumn((int)League.columnValues.continent))[0].Text;
+                league.name = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.name))[0].Text;
+                league.country = FindTryMultipleElements(LeagueLocators.LeagueValueCountry)[0].GetAttribute("alt");
+                league.clubQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.clubQuantity))[0].Text);
+                league.playerQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.playerQuantity))[0].Text);
+                league.totalMarketValue = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.totalMarketValue))[0].Text;
+                league.continent = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.continent))[0].Text;
             }
             catch
             {
@@ -38,7 +38,7 @@
 
         public void ClickLeague()
         {
-            ClickElement(LeagueElements.LeagueLocators.LeagueLink);
+            ClickElement(LeagueLocators.LeagueLink);
         }
     }
 

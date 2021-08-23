@@ -1,7 +1,6 @@
 ﻿namespace ProyectoFutbol.Scaper
 {
     using System.Collections.Generic;
-    using System.Diagnostics;
     using Newtonsoft.Json;
     using NUnit.Framework;
     using ProyectoFutbol.Builders.LeaguesBuilder;
@@ -40,12 +39,12 @@
             finally
             {
                 //Write the data gathered
-                for (int i = 0; i < LeagueConsts.consts.Count; i++)
-                {
-                    string output = JsonConvert.SerializeObject(leagues[i]);
-                    //League deserializedProduct = JsonConvert.DeserializeObject<League>(output);
-                    Debug.WriteLine(output);
-                }
+                string LigaProfParsed = JsonConvert.SerializeObject(leagues[0]);
+                string PremierParsed = JsonConvert.SerializeObject(leagues[1]);
+                string LaLigaParsed = JsonConvert.SerializeObject(leagues[2]);
+                string SerieAParsed = JsonConvert.SerializeObject(leagues[3]);
+                string LigueParsed = JsonConvert.SerializeObject(leagues[4]);
+                //Debug.WriteLine(output);
             }
         }
     }

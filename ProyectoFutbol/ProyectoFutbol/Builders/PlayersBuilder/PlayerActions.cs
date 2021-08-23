@@ -24,31 +24,82 @@
         /// <returns>List of players</returns>
         public List<Player> GetPlayers()
         {
-            int playersCount = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayersCount).Count;
+            int playersCount = FindTryMultipleElements(PlayerLocators.PlayersCount).Count;
             List<Player> players = new List<Player>();
-            List<IWebElement> _players = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayersRows).ToList();
+            List<IWebElement> _players = FindTryMultipleElements(PlayerLocators.PlayersRows).ToList();
             //Devuelve todo menos el country, lo hace mas rapido que lo de abajo, mappear la data de "_players" haria todo mucho mas rapido
 
-            for (int i = 1; i <= playersCount; i++)
+            for (int i = 0; i < _players.Count; i++)
+            {
+                Player _player = new Player();
+
+                List<string> cleanPlayer = _players[i].Text.Replace("\r\n", " ").Split(' ').ToList();
+                
+                #region Player Mapper
+                if (cleanPlayer.Count == 14)
+                {
+                    _player.number = cleanPlayer[0] == "-" ? 0 : int.Parse(cleanPlayer[0]);
+                    _player.name = cleanPlayer[1] + " " + cleanPlayer[2] + " " + cleanPlayer[3] + " " + cleanPlayer[4];
+                    _player.position = cleanPlayer[5] + " " + cleanPlayer[6];
+                    _player.dateOfBirth = cleanPlayer[7] + " " + cleanPlayer[8];
+                    _player.marketValue = cleanPlayer[9] + "" + cleanPlayer[10] + " " + cleanPlayer[11];
+                }
+                else if (cleanPlayer.Count == 13)
+                {
+                    _player.number = cleanPlayer[0] == "-" ? 0 : int.Parse(cleanPlayer[0]);
+                    _player.name = cleanPlayer[1] + " " + cleanPlayer[2] + " " + cleanPlayer[3];
+                    _player.position = cleanPlayer[4] + " " + cleanPlayer[5];
+                    _player.dateOfBirth = cleanPlayer[6] + " " + cleanPlayer[7];
+                    _player.marketValue = cleanPlayer[8] + "" + cleanPlayer[9] + " " + cleanPlayer[10];
+                }
+                else if(cleanPlayer.Count == 12)
+                {
+                    _player.number = cleanPlayer[0] == "-" ? 0 : int.Parse(cleanPlayer[0]);
+                    _player.name = cleanPlayer[1] + " " + cleanPlayer[2];
+                    _player.position = cleanPlayer[3] + " " + cleanPlayer[4];
+                    _player.dateOfBirth = cleanPlayer[5] + " " + cleanPlayer[6];
+                    _player.marketValue = cleanPlayer[7] + "" + cleanPlayer[8] + " " + cleanPlayer[9];
+                }
+                else if (cleanPlayer.Count == 11)
+                {
+                    _player.number = cleanPlayer[0] == "-" ? 0 : int.Parse(cleanPlayer[0]);
+                    _player.name = cleanPlayer[1] + " " + cleanPlayer[2];
+                    _player.position = cleanPlayer[3];
+                    _player.dateOfBirth = cleanPlayer[4] + " " + cleanPlayer[5];
+                    _player.marketValue = cleanPlayer[6] + "" + cleanPlayer[7] + " " + cleanPlayer[8];
+                }
+
+                IWebElement countryElement = FindTryMultipleElements(PlayerLocators.PlayerCountry(i+1))[0];
+                _player.country = countryElement != null ? countryElement.GetAttribute("alt") : null;
+                #endregion
+
+                players.Add(_player);
+            }
+
+            #region Players Mappser - OLD
+            //OLD WAY, SLOW WAY
+            /*for (int i = 1; i <= playersCount; i++)
             {
                 Player player = new Player();
                 string _number = string.Empty;
+                
+                //IWebElement nameElement = FindTryMultipleElements(PlayerLocators.PlayerName(i))[0];
+                //IWebElement numberElement = FindTryMultipleElements(PlayerLocators.PlayerNumber(i))[0];
+                //IWebElement marketValueElement = FindTryMultipleElements(PlayerLocators.PlayerMarketValue(i))[0];
+                //IWebElement dateOfBirthElement = FindTryMultipleElements(PlayerLocators.PlayerDateOfBirth(i))[0];
+                //IWebElement positionElement = FindTryMultipleElements(PlayerLocators.PlayerPosition(i))[0];
+
+                //player.name = nameElement != null ? nameElement.GetAttribute("innerHTML") : null;
+                //player.number = numberElement.GetAttribute("innerHTML") == "-" ? 0 : int.Parse(numberElement.GetAttribute("innerHTML"));
+                //player.marketValue = marketValueElement != null ? marketValueElement.GetAttribute("innerHTML").Split('€')[0] + '€' : null;
+                //player.dateOfBirth = dateOfBirthElement != null ? dateOfBirthElement.GetAttribute("innerHTML") : null;
+                //player.position = positionElement != null ? positionElement.GetAttribute("innerHTML") : null;
 
                 try
                 {
-                    IWebElement nameElement = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayerName(i))[0];
-                    IWebElement numberElement = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayerNumber(i))[0];
-                    IWebElement countryElement = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayerCountry(i))[0];
-                    IWebElement marketValueElement = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayerMarketValue(i))[0];
-                    IWebElement dateOfBirthElement = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayerDateOfBirth(i))[0];
-                    IWebElement positionElement = FindTryMultipleElements(PlayerElements.PlayerLocators.PlayerPosition(i))[0];
-
-                    player.name = nameElement != null ? nameElement.GetAttribute("innerHTML") : null;
-                    player.number = numberElement.GetAttribute("innerHTML") == "-" ? 0 : int.Parse(numberElement.GetAttribute("innerHTML"));
+                    
+                    IWebElement countryElement = FindTryMultipleElements(PlayerLocators.PlayerCountry(i))[0];
                     player.country = countryElement != null ? countryElement.GetAttribute("alt") : null;
-                    player.marketValue = marketValueElement != null ? marketValueElement.GetAttribute("innerHTML").Split('€')[0] + '€' : null;
-                    player.dateOfBirth = dateOfBirthElement != null ? dateOfBirthElement.GetAttribute("innerHTML") : null;
-                    player.position = positionElement != null ? positionElement.GetAttribute("innerHTML") : null;
 
                     players.Add(player);
                 }
@@ -56,7 +107,8 @@
                 {
                     throw new Exception(PlayerExceptions.PlayerBuildException(i.ToString()));
                 }
-            }
+            }*/
+            #endregion
 
             return players;
         }
