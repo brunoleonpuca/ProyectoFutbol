@@ -24,10 +24,19 @@
         /// <returns>List of players</returns>
         public List<Player> GetPlayers()
         {
-            int playersCount = FindTryMultipleElements(PlayerLocators.PlayersCount).Count;
             List<Player> players = new List<Player>();
+            //int playersCount = FindTryMultipleElements(PlayerLocators.PlayersCount).Count;
+
+            //NEED FIX FOR GOALKEEPERS NAMES
+            //If It's still breaking goalkeepers maybe try the .Trim function
+            /*
+              Or this Regex solution:
+               var oldString = "the quick brown\rfox jumped over\nthe box\r\nand landed on some rocks.";
+               var newString = string.Join(" ", Regex.Split(oldString, @"(?:\r\n|\n|\r)"));
+               Console.Write(newString);
+            */
+
             List<IWebElement> _players = FindTryMultipleElements(PlayerLocators.PlayersRows).ToList();
-            //Devuelve todo menos el country, lo hace mas rapido que lo de abajo, mappear la data de "_players" haria todo mucho mas rapido
 
             for (int i = 0; i < _players.Count; i++)
             {

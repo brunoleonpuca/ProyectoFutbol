@@ -19,6 +19,8 @@
         {
             int teamsCount = FindTryMultipleElements(TeamLocators.TeamsCount).Count;
             List<Team> teams = new List<Team>();
+
+            //Improve speed of the teams like the players.cs
             for (int i = 1; i < teamsCount + 1; i++)
             {
                 Team team = new Team();
