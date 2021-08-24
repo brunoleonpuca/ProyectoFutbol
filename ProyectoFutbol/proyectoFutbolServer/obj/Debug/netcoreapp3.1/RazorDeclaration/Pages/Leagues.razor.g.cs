@@ -75,6 +75,28 @@ using proyectoFutbolServer.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\repos\ProyectoFutbol\ProyectoFutbol\proyectoFutbolServer\Pages\Leagues.razor"
+using ProyectoFutbol.DB;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\repos\ProyectoFutbol\ProyectoFutbol\proyectoFutbolServer\Pages\Leagues.razor"
+using ProyectoFutbol.Builders;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\repos\ProyectoFutbol\ProyectoFutbol\proyectoFutbolServer\Pages\Leagues.razor"
+using Microsoft.Extensions.Configuration;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/leagues")]
     public partial class Leagues : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -82,6 +104,30 @@ using proyectoFutbolServer.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 29 "C:\repos\ProyectoFutbol\ProyectoFutbol\proyectoFutbolServer\Pages\Leagues.razor"
+       
+    List<Leagues> leagues;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        //await _data.loadData
+
+        string sql = "select * from leagues";
+
+        leagues = await _data.LoadData<Leagues, dynamic>(sql, new { }, _config.GetConnectionString("default"));
+
+
+
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguration _config { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPF_DataAcess _data { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -1,10 +1,7 @@
 ﻿namespace ProyectoFutbol.Builders.PlayersBuilder
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using OpenQA.Selenium;
     using ProyectoFutbol.BrowserSetup;
 
@@ -27,14 +24,7 @@
             List<Player> players = new List<Player>();
             //int playersCount = FindTryMultipleElements(PlayerLocators.PlayersCount).Count;
 
-            //NEED FIX FOR GOALKEEPERS NAMES
-            //If It's still breaking goalkeepers maybe try the .Trim function
-            /*
-              Or this Regex solution:
-               var oldString = "the quick brown\rfox jumped over\nthe box\r\nand landed on some rocks.";
-               var newString = string.Join(" ", Regex.Split(oldString, @"(?:\r\n|\n|\r)"));
-               Console.Write(newString);
-            */
+
 
             List<IWebElement> _players = FindTryMultipleElements(PlayerLocators.PlayersRows).ToList();
 
@@ -43,8 +33,24 @@
                 Player _player = new Player();
 
                 List<string> cleanPlayer = _players[i].Text.Replace("\r\n", " ").Split(' ').ToList();
-                
+
                 #region Player Mapper
+                /*
+              
+              NEED FIX FOR GOALKEEPERS NAMES
+              If It's still breaking goalkeepers maybe try the .Trim function
+            
+              Or this Regex solution:
+               var oldString = "the quick brown\rfox jumped over\nthe box\r\nand landed on some rocks.";
+               var newString = string.Join(" ", Regex.Split(oldString, @"(?:\r\n|\n|\r)"));
+               Console.Write(newString);
+            
+            
+                CAPAZ EL FIX PUEDE SER BUSCAR PRIMERO LA POSICION Y DESPUES LOS NOMBRES, TOTAL LOS BUGEADOS
+                SON UNICAMENTE LOS ARQUEROS...NADA...PARA PENSAR
+
+
+             */
                 if (cleanPlayer.Count == 14)
                 {
                     _player.number = cleanPlayer[0] == "-" ? 0 : int.Parse(cleanPlayer[0]);
@@ -61,7 +67,7 @@
                     _player.dateOfBirth = cleanPlayer[6] + " " + cleanPlayer[7];
                     _player.marketValue = cleanPlayer[8] + "" + cleanPlayer[9] + " " + cleanPlayer[10];
                 }
-                else if(cleanPlayer.Count == 12)
+                else if (cleanPlayer.Count == 12)
                 {
                     _player.number = cleanPlayer[0] == "-" ? 0 : int.Parse(cleanPlayer[0]);
                     _player.name = cleanPlayer[1] + " " + cleanPlayer[2];
@@ -78,7 +84,7 @@
                     _player.marketValue = cleanPlayer[6] + "" + cleanPlayer[7] + " " + cleanPlayer[8];
                 }
 
-                IWebElement countryElement = FindTryMultipleElements(PlayerLocators.PlayerCountry(i+1))[0];
+                IWebElement countryElement = FindTryMultipleElements(PlayerLocators.PlayerCountry(i + 1))[0];
                 _player.country = countryElement != null ? countryElement.GetAttribute("alt") : null;
                 #endregion
 

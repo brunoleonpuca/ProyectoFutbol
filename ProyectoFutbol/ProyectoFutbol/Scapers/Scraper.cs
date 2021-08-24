@@ -1,6 +1,7 @@
 ﻿namespace ProyectoFutbol.Scaper
 {
     using System.Collections.Generic;
+    using System.IO;
     using Newtonsoft.Json;
     using NUnit.Framework;
     using ProyectoFutbol.Builders.LeaguesBuilder;
@@ -34,20 +35,45 @@
             }
             catch
             {
-
+                PreviewDataGather.JsonBuilder(leagues);
             }
             finally
             {
-                //Write the data gathered
-                string LigaProfParsed = JsonConvert.SerializeObject(leagues[0]);
-                string PremierParsed = JsonConvert.SerializeObject(leagues[1]);
-                string LaLigaParsed = JsonConvert.SerializeObject(leagues[2]);
-                string SerieAParsed = JsonConvert.SerializeObject(leagues[3]);
-                string LigueParsed = JsonConvert.SerializeObject(leagues[4]);
-                //Debug.WriteLine(output);
+                PreviewDataGather.JsonBuilder(leagues);
             }
         }
     }
+
+    public class PreviewDataGather
+    {
+        public static void JsonBuilder(List<League> leagues)
+        {
+            string path = @"C:\repos\ProyectoFutbol\futbolFile.json";
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
+            //Write the data gathered;
+            string LigaProfParsed = JsonConvert.SerializeObject(leagues[0]);
+            string PremierParsed = JsonConvert.SerializeObject(leagues[1]);
+            string LaLigaParsed = JsonConvert.SerializeObject(leagues[2]);
+            string SerieAParsed = JsonConvert.SerializeObject(leagues[3]);
+            string LigueParsed = JsonConvert.SerializeObject(leagues[4]);
+
+            //Debug.WriteLine(output);
+
+            File.WriteAllText(path, LigaProfParsed
+                           + "\n" + PremierParsed
+                           + "\n" + LaLigaParsed
+                           + "\n" + SerieAParsed
+                           + "\n" + LigueParsed);
+
+            File.Open(path, FileMode.Open);
+        }
+    }
+
 
     public static class LeagueConsts
     {

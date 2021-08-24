@@ -11,6 +11,7 @@ namespace proyectoFutbolServer
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using ProyectoFutbol.DB;
     using proyectoFutbolServer.Data;
 
     public class Startup
@@ -29,6 +30,7 @@ namespace proyectoFutbolServer
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<IPF_DataAcess, PF_DataAcess>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -119,6 +119,7 @@
     <Compile Include="Builders\TeamsBuilder\TeamActions.cs" />
     <Compile Include="Builders\TeamsBuilder\TeamElements.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="DB\IPF_DataAcess.cs" />
     <Compile Include="DB\PF_DataAcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scapers\Scraper.cs" />

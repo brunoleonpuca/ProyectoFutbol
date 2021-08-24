@@ -3,25 +3,27 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using System.Threading.Tasks;
     using Dapper;
     using MySql.Data.MySqlClient;
 
-    public class PF_DataAcess
+    public class PF_DataAcess : IPF_DataAcess
     {
-        public List<T> LoadData<T, U>(string sql, U parameters, string connectionString)
+        public async Task<List<T>> LoadData<T, U>(string sql, U parameters, string connectionString)
         {
             using (IDbConnection connection = new MySqlConnection(connectionString))
             {
-                List<T> rows = connection.Query<T>(sql, parameters).ToList();
-                return rows;
+                var rows = await connection.QueryAsync<T>(sql, parameters);
+                
+                return rows.ToList();
             }
         }
 
-        public void SaveData<T>(string sql, T parameters, string connectionString)
+        public Task SaveData<T>(string sql, T parameters, string connectionString)
         {
             using (IDbConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Execute(sql, parameters);
+                return connection.ExecuteAsync(sql, parameters);
             }
         }
     }
