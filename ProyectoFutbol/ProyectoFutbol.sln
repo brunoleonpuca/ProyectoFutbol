@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoFutbol", "ProyectoFutbol\ProyectoFutbol.csproj", "{638604C5-0CDF-4F61-B03E-84E30BEB3597}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proyectoFutbolServer", "proyectoFutbolServer\proyectoFutbolServer.csproj", "{10AA159C-0DEF-468E-B451-62C68B864B66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proyectoFutbolServer", "proyectoFutbolServer\proyectoFutbolServer.csproj", "{10AA159C-0DEF-468E-B451-62C68B864B66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

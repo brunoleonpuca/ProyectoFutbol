@@ -5,6 +5,9 @@
 
     public class League
     {
+        public int leagueID { get; set; }
+        public static int globalLeagueID = 0;
+        
         public string name { get; set; }
         public string country { get; set; }
         public int clubQuantity { get; set; }

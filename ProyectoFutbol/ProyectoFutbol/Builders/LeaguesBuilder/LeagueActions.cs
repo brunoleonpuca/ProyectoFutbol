@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
     using OpenQA.Selenium;
     using ProyectoFutbol.BrowserSetup;
 
@@ -21,6 +22,7 @@
 
             try
             {
+                league.leagueID = Interlocked.Increment(ref League.globalLeagueID);
                 league.name = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.name))[0].Text;
                 league.country = FindTryMultipleElements(LeagueLocators.LeagueValueCountry)[0].GetAttribute("alt");
                 league.clubQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.clubQuantity))[0].Text);
