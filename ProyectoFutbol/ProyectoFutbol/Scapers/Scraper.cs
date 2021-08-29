@@ -19,7 +19,7 @@
             onMainPageActions.ClickSearchButton();
             leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[0]));
 
-            Assert.IsTrue(da.CheckConnection(leagues[0]));
+            //Assert.IsTrue(da.CheckConnection(leagues[0]));
         }
 
         [Test]
@@ -31,8 +31,9 @@
                 onMainPageActions.ClickSearchButton();
                 leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
             }
-
-            PreviewDataGather.JsonBuilder(leagues);
+            
+            Assert.IsTrue(da.WriteLeagues(leagues));
+            //PreviewDataGather.JsonBuilder(leagues);
         }
 
         [Test]
@@ -51,7 +52,7 @@
                     for (int j = 0; j < leagues[i].Teams.Count; j++)
                     {
                         onTeamActions.ClickTeam(j);
-                        leagues[i].Teams[j].players = onPlayerActions.GetPlayers();
+                        leagues[i].Teams[j].Players = onPlayerActions.GetPlayers();
                         onMainPageActions.GoBack();
                     }
 

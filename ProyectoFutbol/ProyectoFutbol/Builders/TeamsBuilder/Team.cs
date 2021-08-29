@@ -5,9 +5,17 @@
 
     public class Team
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string marketValue { get; set; }
-        public List<Player> players { get; set; }
+        public int TeamID { get; set; }
+        public static int GlobalTeamID = 0;
+        public string Name { get; set; }
+        public string MarketValue { get; set; }
+
+
+
+
+
+
+
+        public List<Player> Players { get; set; }
     }
 }

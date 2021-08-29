@@ -10,8 +10,8 @@
 
     public static class Helper
     {
-        static readonly Config config = new Config();
-        static MySqlConnection databaseConnection = null;
+        private static readonly Config config = new Config();
+        private static MySqlConnection databaseConnection = null;
 
         public static MySqlConnection CnnVal()
         {

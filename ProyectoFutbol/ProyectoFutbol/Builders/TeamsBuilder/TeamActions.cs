@@ -29,9 +29,9 @@
                 
                 try
                 {
-                    team.name = nameElement != null ? nameElement.GetAttribute("innerHTML") : null;
-                    team.marketValue = marketValueElement != null ? marketValueElement.GetAttribute("innerHTML") : null;
-                    team.id = i;
+                    team.Name = nameElement != null ? nameElement.GetAttribute("innerHTML") : null;
+                    team.MarketValue = marketValueElement != null ? marketValueElement.GetAttribute("innerHTML") : null;
+                    team.TeamID = i;
                 }
                 catch
                 {
