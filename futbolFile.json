@@ -1,0 +1,12 @@
+{
+    "LeagueID": 1,
+    "Name": "Copa de la Liga Profesional de Fútbol",
+    "Country": "Argentina",
+    "ClubQuantity": 26,
+    "PlayerQuantity": 746,
+    "TotalMarketValue": "786,40 mill. €",
+    "Continent":"CONMEBOL","Teams":null}
+{"LeagueID":2,"Name":"Premier League","Country":"Inglaterra","ClubQuantity":20,"PlayerQuantity":543,"TotalMarketValue":"8,98 mil mill. €","Continent":"UEFA","Teams":null}
+{"LeagueID":3,"Name":"LaLiga","Country":"España","ClubQuantity":20,"PlayerQuantity":513,"TotalMarketValue":"4,96 mil mill. €","Continent":"UEFA","Teams":null}
+{"LeagueID":4,"Name":"Serie A","Country":"Italia","ClubQuantity":20,"PlayerQuantity":602,"TotalMarketValue":"4,89 mil mill. €","Continent":"UEFA","Teams":null}
+{"LeagueID":5,"Name":"Ligue 1","Country":"Francia","ClubQuantity":20,"PlayerQuantity":582,"TotalMarketValue":"3,70 mil mill. €","Continent":"UEFA","Teams":null}

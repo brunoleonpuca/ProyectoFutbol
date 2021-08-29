@@ -22,13 +22,13 @@
 
             try
             {
-                league.leagueID = Interlocked.Increment(ref League.globalLeagueID);
-                league.name = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.name))[0].Text;
-                league.country = FindTryMultipleElements(LeagueLocators.LeagueValueCountry)[0].GetAttribute("alt");
-                league.clubQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.clubQuantity))[0].Text);
-                league.playerQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.playerQuantity))[0].Text);
-                league.totalMarketValue = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.totalMarketValue))[0].Text;
-                league.continent = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.continent))[0].Text;
+                league.LeagueID = Interlocked.Increment(ref League.GlobalLeagueID);
+                league.Name = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.name))[0].Text;
+                league.Country = FindTryMultipleElements(LeagueLocators.LeagueValueCountry)[0].GetAttribute("alt");
+                league.TeamQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.teamQuantity))[0].Text);
+                league.PlayerQuantity = int.Parse(FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.playerQuantity))[0].Text);
+                league.TotalMarketValue = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.totalMarketValue))[0].Text;
+                league.Continent = FindTryMultipleElements(LeagueLocators.LeagueValueByColumn((int)League.columnValues.continent))[0].Text;
             }
             catch
             {

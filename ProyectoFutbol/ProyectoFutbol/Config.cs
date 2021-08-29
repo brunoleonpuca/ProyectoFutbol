@@ -12,6 +12,7 @@
 		public string DefaultBrowser = ConfigurationManager.AppSettings["DefaultBrowser"];
 
 		public string TransferMrktURL = ConfigurationManager.AppSettings["TransferMrktURL"];
-
+		
+		public string ConnectionString = ConfigurationManager.AppSettings["ConnectionString"];
 	}
 }

@@ -5,13 +5,38 @@
     using Newtonsoft.Json;
     using NUnit.Framework;
     using ProyectoFutbol.Builders.LeaguesBuilder;
+    using ProyectoFutbol.db;
 
     public class Scraper : ScraperBase
     {
         private readonly List<League> leagues = new List<League>();
+        private readonly DataAccess da = new DataAccess();
+
+        [Test]
+        public void CheckConnection()
+        {
+            onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[0]);
+            onMainPageActions.ClickSearchButton();
+            leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[0]));
+
+            Assert.IsTrue(da.CheckConnection(leagues[0]));
+        }
 
         [Test]
         public void GetLeagues()
+        {
+            for (int i = 0; i < LeagueConsts.consts.Count; i++)
+            {
+                onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
+                onMainPageActions.ClickSearchButton();
+                leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
+            }
+
+            PreviewDataGather.JsonBuilder(leagues);
+        }
+
+        [Test]
+        public void GetAll()
         {
             try
             {
@@ -21,12 +46,12 @@
                     onMainPageActions.ClickSearchButton();
                     leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
                     onLeagueActions.ClickLeague();
-                    leagues[i].teams = onTeamActions.GetTeams();
+                    leagues[i].Teams = onTeamActions.GetTeams();
 
-                    for (int j = 0; j < leagues[i].teams.Count; j++)
+                    for (int j = 0; j < leagues[i].Teams.Count; j++)
                     {
                         onTeamActions.ClickTeam(j);
-                        leagues[i].teams[j].players = onPlayerActions.GetPlayers();
+                        leagues[i].Teams[j].players = onPlayerActions.GetPlayers();
                         onMainPageActions.GoBack();
                     }
 
@@ -37,10 +62,6 @@
             {
                 PreviewDataGather.JsonBuilder(leagues);
             }
-            finally
-            {
-                PreviewDataGather.JsonBuilder(leagues);
-            }
         }
     }
 
@@ -48,6 +69,9 @@
     {
         public static void JsonBuilder(List<League> leagues)
         {
+            
+
+
             string path = @"C:\repos\ProyectoFutbol\futbolFile.json";
 
             if (File.Exists(path))

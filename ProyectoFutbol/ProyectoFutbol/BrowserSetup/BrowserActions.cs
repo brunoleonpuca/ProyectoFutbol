@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Support.UI;
 
     public class BrowserActions
     {
@@ -12,7 +14,10 @@
         public IWebElement element1;
         public IList<IWebElement> elements;
         public List<IWebElement> elem;
-        public void sleep(int waitTime = 1) => Thread.Sleep(waitTime * 20);
+
+        private void sleep(int waitTime = 1) => Thread.Sleep(waitTime * 20);
+        
+        private WebDriverWait wait(int timeSpan = 5) => new WebDriverWait(driver, TimeSpan.FromSeconds(timeSpan));
 
         public BrowserActions(IWebDriver driver)
         {
@@ -83,8 +88,7 @@
         {
             try
             {
-                elements = WaitUntilElementsAreDisplayed(locator);
-                elements[0].Click();
+                elements = WaitUntilElementIsClickableASAP(locator);
             }
             catch (Exception e)
             {
@@ -179,7 +183,7 @@
         {
             try
             {
-                elements = WaitUntilElementsAreDisplayed(locator);
+                elements = WaitUntilElementIsEnabledOrDisplayedASAP(locator);
                 return elements;
             }
             catch (Exception e)
@@ -198,6 +202,12 @@
         #endregion
 
         #region Waiters
+        public void WaitUntil(Func<bool> condition, int timeSpan = 10)
+        {
+            bool result;
+            wait(timeSpan).Until<bool>(x => result = condition());
+        }
+
         public IList<IWebElement> WaitUntilElementsAreDisplayed(By locator, int attempts = 2)
         {
             try
@@ -247,6 +257,51 @@
 
             return false;
             throw new Exception(ScraperActionsExceptionsConsts.ElementIsNotClickable);
+        }
+
+        protected bool ElementVisible(IWebElement element)
+        {
+            return element.GetCssValue("visibility").Contains("visible");
+        }
+
+        protected bool ElementClickable(IWebElement element)
+        {
+            //return element.GetCssValue("cursor").Contains("pointer");
+            return element.Displayed;
+
+        }
+
+        public List<IWebElement> WaitUntilElementIsClickableASAP(By locator)
+        {
+            IList<IWebElement> element = new List<IWebElement>();
+            try
+            {
+                element = driver.FindElements(locator);
+                WaitUntil(() => ElementClickable(element[0]));
+                element[0].Click();
+            }
+            catch
+            {
+
+            }
+
+            return element.ToList();
+        }
+
+        public List<IWebElement> WaitUntilElementIsEnabledOrDisplayedASAP(By locator)
+        {
+            IList<IWebElement> element = new List<IWebElement>();
+            try
+            {
+                element = driver.FindElements(locator);
+                WaitUntil(() => ElementVisible(element[0]));
+            }
+            catch
+            {
+
+            }
+            
+            return element.ToList();
         }
         #endregion
     }

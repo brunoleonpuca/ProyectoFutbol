@@ -14,7 +14,7 @@
 
         public void SendKeysToSearchBar(string league)
         {
-            WaitUntilElementsAreDisplayed(MainPageLocators.searchBarInput);
+            WaitUntilElementIsEnabledOrDisplayedASAP(MainPageLocators.searchBarInput);
             SendKeysToElement(MainPageLocators.searchBarInput, league);
         }
 

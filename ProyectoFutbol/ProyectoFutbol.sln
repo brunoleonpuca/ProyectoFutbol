@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoFutbol", "ProyectoFutbol\ProyectoFutbol.csproj", "{638604C5-0CDF-4F61-B03E-84E30BEB3597}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proyectoFutbolServer", "proyectoFutbolServer\proyectoFutbolServer.csproj", "{10AA159C-0DEF-468E-B451-62C68B864B66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoFutbolUIAlfa", "ProyectoFutbolUIAlfa\ProyectoFutbolUIAlfa.csproj", "{F2E044AC-5B6B-4F9F-82A1-DAF31E186D4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{638604C5-0CDF-4F61-B03E-84E30BEB3597}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{638604C5-0CDF-4F61-B03E-84E30BEB3597}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{638604C5-0CDF-4F61-B03E-84E30BEB3597}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10AA159C-0DEF-468E-B451-62C68B864B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10AA159C-0DEF-468E-B451-62C68B864B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10AA159C-0DEF-468E-B451-62C68B864B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10AA159C-0DEF-468E-B451-62C68B864B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E044AC-5B6B-4F9F-82A1-DAF31E186D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E044AC-5B6B-4F9F-82A1-DAF31E186D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E044AC-5B6B-4F9F-82A1-DAF31E186D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E044AC-5B6B-4F9F-82A1-DAF31E186D4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

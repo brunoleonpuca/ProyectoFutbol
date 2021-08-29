@@ -5,20 +5,20 @@
 
     public class League
     {
-        public int leagueID { get; set; }
-        public static int globalLeagueID = 0;
+        public int LeagueID { get; set; }
+        public static int GlobalLeagueID = 0;
         
-        public string name { get; set; }
-        public string country { get; set; }
-        public int clubQuantity { get; set; }
-        public int playerQuantity { get; set; }
-        public string totalMarketValue { get; set; }
-        public string continent { get; set; }
-        public List<Team> teams { get; set; }
+        public string Name { get; set; }
+        public string Country { get; set; }
+        public int TeamQuantity { get; set; }
+        public int PlayerQuantity { get; set; }
+        public string TotalMarketValue { get; set; }
+        public string Continent { get; set; }
+        public List<Team> Teams { get; set; }
 
         public enum columnValues
         {
-            name = 2, clubQuantity = 4, playerQuantity = 5, totalMarketValue = 6, continent = 8
+            name = 2, teamQuantity = 4, playerQuantity = 5, totalMarketValue = 6, continent = 8
         }
     }
 }
