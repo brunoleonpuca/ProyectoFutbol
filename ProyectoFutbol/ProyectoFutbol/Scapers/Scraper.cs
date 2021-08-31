@@ -1,5 +1,6 @@
 ﻿namespace ProyectoFutbol.Scaper
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using Newtonsoft.Json;
@@ -12,28 +13,36 @@
         private readonly List<League> leagues = new List<League>();
         private readonly DataAccess da = new DataAccess();
 
-        [Test]
-        public void CheckConnection()
-        {
-            onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[0]);
-            onMainPageActions.ClickSearchButton();
-            leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[0]));
-
-            //Assert.IsTrue(da.CheckConnection(leagues[0]));
-        }
+        //[Test]
+        //public void CheckConnection()
+        //{
+        //    onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[0]);
+        //    onMainPageActions.ClickSearchButton();
+        //    leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[0]));
+        //}
 
         [Test]
         public void GetLeagues()
         {
+            onLeagueActions.
+
             for (int i = 0; i < LeagueConsts.consts.Count; i++)
             {
                 onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
                 onMainPageActions.ClickSearchButton();
-                leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
+                onLeagueActions.ClickLeague();
+                onLeagueActions.GetLeagueInformationFromLeaguePage(); //Aca deberia manejar la nueva data y agregarla a 'leagues'
             }
-            
+
+            //for (int i = 0; i < LeagueConsts.consts.Count; i++)
+            //{
+            //    onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
+            //    onMainPageActions.ClickSearchButton();
+            //    leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
+            //    onLeagueActions.ClickLeague();
+            //}
+
             Assert.IsTrue(da.WriteLeagues(leagues));
-            //PreviewDataGather.JsonBuilder(leagues);
         }
 
         [Test]
@@ -59,46 +68,12 @@
                     onMainPageActions.ClickGoUp();
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                PreviewDataGather.JsonBuilder(leagues);
+                new Exception(ex.Message);
             }
         }
     }
-
-    public class PreviewDataGather
-    {
-        public static void JsonBuilder(List<League> leagues)
-        {
-            
-
-
-            string path = @"C:\repos\ProyectoFutbol\futbolFile.json";
-
-            if (File.Exists(path))
-            {
-                File.Delete(path);
-            }
-
-            //Write the data gathered;
-            string LigaProfParsed = JsonConvert.SerializeObject(leagues[0]);
-            string PremierParsed = JsonConvert.SerializeObject(leagues[1]);
-            string LaLigaParsed = JsonConvert.SerializeObject(leagues[2]);
-            string SerieAParsed = JsonConvert.SerializeObject(leagues[3]);
-            string LigueParsed = JsonConvert.SerializeObject(leagues[4]);
-
-            //Debug.WriteLine(output);
-
-            File.WriteAllText(path, LigaProfParsed
-                           + "\n" + PremierParsed
-                           + "\n" + LaLigaParsed
-                           + "\n" + SerieAParsed
-                           + "\n" + LigueParsed);
-
-            File.Open(path, FileMode.Open);
-        }
-    }
-
 
     public static class LeagueConsts
     {

@@ -1,0 +1,13 @@
+PlayersQuantity
+PlayersAverage
+PlayersForeign
+#verein_head > div > div.dataHeader.dataExtended > div.dataContent > div > div:nth-child(1) > p:nth-child({ enum }) > span.dataValuee
+
+
+#verein_head > div > div.dataHeader.dataExtended > div.dataContent > div > div:nth-child(2) > p:nth-child(2) > span.dataValue
+Stadium '+ > a'
+Capacity + '> p'
+
+
+
+

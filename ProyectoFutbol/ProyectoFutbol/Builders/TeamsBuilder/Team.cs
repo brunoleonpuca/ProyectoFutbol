@@ -10,12 +10,6 @@
         public string Name { get; set; }
         public string MarketValue { get; set; }
 
-
-
-
-
-
-
         public List<Player> Players { get; set; }
     }
 }

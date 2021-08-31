@@ -1,0 +1,6 @@
+MoreValuablePlayer 4 '+ > a'
+MoreValuablePlayerValue 4 '+ > span'
+
+MoreTitles 1 '+ > a'
+
+#wettbewerb_head > div > div > div.box-content > div.box-personeninfos > div:nth-child(2) > table > tbody > tr:nth-child({ enum }) > td

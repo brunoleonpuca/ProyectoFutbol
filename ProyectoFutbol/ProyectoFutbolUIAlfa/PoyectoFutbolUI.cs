@@ -31,7 +31,6 @@
         {
             DataAccess db = new DataAccess();
 
-            db.CheckConnection(leagues[0]);
 
         }
     }

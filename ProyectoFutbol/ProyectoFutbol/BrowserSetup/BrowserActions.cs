@@ -35,10 +35,10 @@
             {
                 driver.Navigate().GoToUrl(url);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
-                throw new Exception(BrowserActionsExceptionsConsts.URLNotFound(url));
+                new Exception(ex.Message);
+                new Exception(BrowserActionsExceptionsConsts.URLNotFound(url));
             }
         }
 
