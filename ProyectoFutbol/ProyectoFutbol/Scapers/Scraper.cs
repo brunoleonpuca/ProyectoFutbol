@@ -11,7 +11,7 @@
     public class Scraper : ScraperBase
     {
         private readonly List<League> leagues = new List<League>();
-        private readonly DataAccess da = new DataAccess();
+        //private readonly DataAccess da = new DataAccess();
 
         //[Test]
         //public void CheckConnection()
@@ -24,7 +24,8 @@
         [Test]
         public void GetLeagues()
         {
-            onLeagueActions.
+            actions.GoToPreviousTab();
+            onMainPageActions.ClickModalMessage();
 
             for (int i = 0; i < LeagueConsts.consts.Count; i++)
             {
@@ -42,7 +43,7 @@
             //    onLeagueActions.ClickLeague();
             //}
 
-            Assert.IsTrue(da.WriteLeagues(leagues));
+            //Assert.IsTrue(da.WriteLeagues(leagues));
         }
 
         [Test]

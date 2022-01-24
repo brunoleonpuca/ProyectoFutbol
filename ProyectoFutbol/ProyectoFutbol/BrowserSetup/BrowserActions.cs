@@ -42,6 +42,21 @@
             }
         }
 
+        ///<summary>
+        ///Waits until the URL is loaded
+        /// </summary>
+        public void WaitForURL()
+        {
+            try
+            {
+                
+            }
+            catch
+            {
+
+            }
+        }
+
         /// <summary>
         /// Refreshes the actual URL
         /// </summary>
@@ -60,7 +75,8 @@
 
         public void GoToPreviousTab()
         {
-            driver.SwitchTo().Window(driver.WindowHandles[0]);
+            var windowsLists = driver.WindowHandles.ToList();
+            driver.SwitchTo().Window(windowsLists[1]);
         }
 
         /// <summary>

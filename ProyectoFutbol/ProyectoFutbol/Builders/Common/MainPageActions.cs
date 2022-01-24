@@ -28,5 +28,14 @@
             ClickElement(MainPageLocators.goUp);
         }
 
+        public void ClickModalMessage()
+        {
+            driver.SwitchTo().Frame(1);
+            //var temp = driver.FindElements(By.XPath("//iframe"));
+            //driver.SwitchTo().Frame(0);
+            WaitUntilElementIsEnabledOrDisplayedASAP(MainPageLocators.modalMessageBox);
+            ClickElement(MainPageLocators.messageModalAcceptButton);
+            driver.SwitchTo().DefaultContent();
+        }
     }
 }

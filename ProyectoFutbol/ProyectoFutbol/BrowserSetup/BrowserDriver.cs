@@ -26,10 +26,10 @@
                     options = new ChromeOptions();
 
                     //Loads adblock to chromedriver
-                    options.AddExtension("C:\\repos\\ChromeExtensions\\4.35.0_0.crx");
+                    options.AddExtension("C:\\repos\\ChromeExtensions\\4.42.0_0.crx");
 
                     driver = new ChromeDriver(options);
-                    //driver.Manage().Window.Maximize();
+                    driver.Manage().Window.Maximize();
                 }
             }
             catch

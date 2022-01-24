@@ -24,7 +24,7 @@
         public void BeforeAll()
         {
             actions.Get(config.TransferMrktURL);
-            actions.GoToPreviousTab();
+            //actions.GoToPreviousTab();
         }
 
         [OneTimeTearDown]
