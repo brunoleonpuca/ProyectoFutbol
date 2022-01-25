@@ -64,8 +64,8 @@
                         onTeamActions.ClickTeam(j);
                         leagues[i].Teams[j].Players = onPlayerActions.GetPlayers();
                         onMainPageActions.GoBack();
-                    }
 
+                    }
                     onMainPageActions.ClickGoUp();
                 }
             }
