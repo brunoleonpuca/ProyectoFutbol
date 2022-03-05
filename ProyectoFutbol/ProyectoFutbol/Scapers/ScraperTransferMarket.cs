@@ -44,7 +44,8 @@
                 onLeagueActions.ClickLeague();
             }
 
-            Assert.IsTrue(da.WriteLeagues(leagues));
+            Assert.IsTrue(da.WriteLeaguesObjectTextfile(leagues));
+            //Assert.IsTrue(da.WriteLeagues(leagues));
         }
 
         [Test]

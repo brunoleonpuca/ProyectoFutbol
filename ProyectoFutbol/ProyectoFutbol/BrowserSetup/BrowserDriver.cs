@@ -23,7 +23,7 @@
                 {
                     options = new ChromeOptions();
                     //Loads adblock to chromedriver
-                    options.AddExtension("C:\\repos\\ChromeExtensions\\4.42.0_0.crx");
+                    options.AddExtension("C:\\repos\\ProyectoFutbol\\ChromeExtensions\\4.42.0_0.crx");
                     driver = new ChromeDriver(options);
                     var windowsLists = driver.WindowHandles.ToList();
                     driver.Close();
