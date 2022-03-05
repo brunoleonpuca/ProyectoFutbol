@@ -11,7 +11,7 @@
     public class Scraper : ScraperBase
     {
         private readonly List<League> leagues = new List<League>();
-        //private readonly DataAccess da = new DataAccess();
+        private readonly DataAccess da = new DataAccess();
 
         //[Test]
         //public void CheckConnection()
@@ -24,26 +24,25 @@
         [Test]
         public void GetLeagues()
         {
-            actions.GoToPreviousTab();
-            onMainPageActions.ClickModalMessage();
-
-            for (int i = 0; i < LeagueConsts.consts.Count; i++)
-            {
-                onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
-                onMainPageActions.ClickSearchButton();
-                onLeagueActions.ClickLeague();
-                onLeagueActions.GetLeagueInformationFromLeaguePage(); //Aca deberia manejar la nueva data y agregarla a 'leagues'
-            }
 
             //for (int i = 0; i < LeagueConsts.consts.Count; i++)
             //{
             //    onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
             //    onMainPageActions.ClickSearchButton();
-            //    leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
             //    onLeagueActions.ClickLeague();
+            //    onLeagueActions.GetLeagueInformationFromLeaguePage(); //Aca deberia manejar la nueva data y agregarla a 'leagues'
             //}
 
-            //Assert.IsTrue(da.WriteLeagues(leagues));
+            for (int i = 0; i < LeagueConsts.consts.Count; i++)
+            {
+                onMainPageActions.ClickModalMessage();
+                onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
+                onMainPageActions.ClickSearchButton();
+                leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
+                onLeagueActions.ClickLeague();
+            }
+
+            Assert.IsTrue(da.WriteLeagues(leagues));
         }
 
         [Test]
@@ -53,6 +52,7 @@
             {
                 for (int i = 0; i < LeagueConsts.consts.Count; i++)
                 {
+                    onMainPageActions.ClickModalMessage();
                     onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
                     onMainPageActions.ClickSearchButton();
                     leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
@@ -61,11 +61,12 @@
 
                     for (int j = 0; j < leagues[i].Teams.Count; j++)
                     {
+                        onMainPageActions.ClickModalMessage();
                         onTeamActions.ClickTeam(j);
                         leagues[i].Teams[j].Players = onPlayerActions.GetPlayers();
                         onMainPageActions.GoBack();
-
                     }
+
                     onMainPageActions.ClickGoUp();
                 }
             }
@@ -73,6 +74,8 @@
             {
                 new Exception(ex.Message);
             }
+
+            Assert.IsTrue(da.WriteLeagues(leagues));
         }
     }
 

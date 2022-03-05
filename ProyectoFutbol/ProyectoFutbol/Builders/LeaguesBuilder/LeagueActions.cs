@@ -41,13 +41,10 @@
 
         public void GetLeagueInformationFromLeaguePage()
         {
-
-
-
-
-
             int dataCount = FindTryMultipleElements(LL.ContainerInfo).Count;
+            
             List<IWebElement> dataList = new List<IWebElement>();
+
             try
             {
                 for (int i = 0; i < dataCount; i++)
@@ -61,11 +58,14 @@
             }
         }
 
-
-
         public void ClickLeague()
         {
             ClickElement(LeagueLocators.LeagueLink);
+        }
+
+        public void ClickPromiedosLeague()
+        {
+            ClickElement(PromiedosLeagueLocators.ArgentinaLeague);
         }
     }
 

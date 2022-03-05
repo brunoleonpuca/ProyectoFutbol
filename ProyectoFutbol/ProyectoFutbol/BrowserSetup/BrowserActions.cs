@@ -76,6 +76,7 @@
         public void GoToPreviousTab()
         {
             var windowsLists = driver.WindowHandles.ToList();
+            driver.Close();
             driver.SwitchTo().Window(windowsLists[1]);
         }
 
@@ -284,7 +285,6 @@
         {
             //return element.GetCssValue("cursor").Contains("pointer");
             return element.Displayed;
-
         }
 
         public List<IWebElement> WaitUntilElementIsClickableASAP(By locator)

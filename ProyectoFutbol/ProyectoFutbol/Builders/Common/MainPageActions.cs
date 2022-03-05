@@ -30,12 +30,22 @@
 
         public void ClickModalMessage()
         {
-            driver.SwitchTo().Frame(1);
-            //var temp = driver.FindElements(By.XPath("//iframe"));
-            //driver.SwitchTo().Frame(0);
-            WaitUntilElementIsEnabledOrDisplayedASAP(MainPageLocators.modalMessageBox);
-            ClickElement(MainPageLocators.messageModalAcceptButton);
-            driver.SwitchTo().DefaultContent();
+            try
+            {
+                driver.SwitchTo().Frame(1);
+                if (driver.FindElement(MainPageLocators.messageModalAcceptButton).Displayed)
+                {
+                    ClickElement(MainPageLocators.messageModalAcceptButton);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                driver.SwitchTo().DefaultContent();
+            }
         }
     }
 }

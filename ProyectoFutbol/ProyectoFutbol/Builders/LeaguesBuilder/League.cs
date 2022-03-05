@@ -6,7 +6,6 @@
     public class League
     {
         public static int GlobalLeagueID = 0;
-
         public int LeagueID { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
@@ -18,6 +17,5 @@
         public string MostTitlesTeam { get; set; }
 
         public List<Team> Teams { get; set; }
-
     }
 }

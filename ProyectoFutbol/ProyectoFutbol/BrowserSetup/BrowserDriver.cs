@@ -29,7 +29,15 @@
                     options.AddExtension("C:\\repos\\ChromeExtensions\\4.42.0_0.crx");
 
                     driver = new ChromeDriver(options);
+
+                    var windowsLists = driver.WindowHandles.ToList();
+
+                    driver.Close();
+
+                    driver.SwitchTo().Window(windowsLists[0]);
+
                     driver.Manage().Window.Maximize();
+
                 }
             }
             catch
