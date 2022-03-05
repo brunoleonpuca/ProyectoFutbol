@@ -13,9 +13,7 @@
         private IWebDriver driver;
         private ChromeOptions options;
         private Config configuration = new Config();
-
-        //This class is to download files:
-        //private DriverManager webDriverManager;
+        //This class is to download files: private DriverManager webDriverManager;
 
         public IWebDriver SelectDefaultBrowser()
         {
@@ -24,20 +22,13 @@
                 if (configuration.DefaultBrowser.Equals(DriverConsts.Chrome))
                 {
                     options = new ChromeOptions();
-
                     //Loads adblock to chromedriver
                     options.AddExtension("C:\\repos\\ChromeExtensions\\4.42.0_0.crx");
-
                     driver = new ChromeDriver(options);
-
                     var windowsLists = driver.WindowHandles.ToList();
-
                     driver.Close();
-
                     driver.SwitchTo().Window(windowsLists[0]);
-
-                    driver.Manage().Window.Maximize();
-
+                    //driver.Manage().Window.Maximize();
                 }
             }
             catch

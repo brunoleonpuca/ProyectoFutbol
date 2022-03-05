@@ -89,7 +89,7 @@
             try
             {
                 IWebElement element = driver.FindElement(locator);
-                ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+                ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
                 Console.WriteLine("Page is scrolled to view the element");
             }
             catch
@@ -298,7 +298,7 @@
             }
             catch
             {
-
+                throw new Exception(BrowserActionsExceptionsConsts.ElementNotFound(locator));
             }
 
             return element.ToList();

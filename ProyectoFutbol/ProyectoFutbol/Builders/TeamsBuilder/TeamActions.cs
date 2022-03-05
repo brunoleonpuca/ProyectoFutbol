@@ -29,7 +29,7 @@
                 
                 try
                 {
-                    team.Name = nameElement != null ? nameElement.GetAttribute("innerHTML") : null;
+                    team.Name = nameElement != null ? nameElement.GetAttribute("innerText") : null;
                     team.MarketValue = marketValueElement != null ? marketValueElement.GetAttribute("innerHTML") : null;
                     team.TeamID = i;
                 }
@@ -46,7 +46,15 @@
 
         public void ClickTeam(int i)
         {
-            ClickElement(TeamLocators.TeamNameButton(i + 1));
+            if (i == 0)
+            {
+                ScrollIntoViewOfElement(TeamLocators.TeamNameButton(i + 1));
+                ClickElement(TeamLocators.TeamNameButton(i + 1));
+            }
+            else
+            {
+                ClickElement(TeamLocators.TeamNameButton(i + 1));
+            }
         }
     }
 

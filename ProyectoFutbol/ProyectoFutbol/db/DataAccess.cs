@@ -4,11 +4,13 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using Dapper;
     using MySql.Data.MySqlClient;
+    using Newtonsoft.Json;
     using ProyectoFutbol.Builders.LeaguesBuilder;
     using ProyectoFutbol.Builders.TeamsBuilder;
 
@@ -126,6 +128,35 @@
                 return false;
             }
 
+            return b;
+        }
+
+        public bool WriteLeaguesObjectTextfile(List<League> leagues)
+        {
+            bool b;
+            // Create your data or fetch them;
+            string json = JsonConvert.SerializeObject(leagues, Formatting.Indented);
+
+            try
+            {
+                //write string to file
+                if (File.Exists(@"C:\repos\ProyectoFutbol\leagues.txt"))
+                {
+                    File.Delete(@"C:\repos\ProyectoFutbol\leagues.txt");
+                    File.WriteAllText(@"C:\repos\ProyectoFutbol\leagues.txt", json);
+                    b = true;
+                }
+                else
+                {
+                    File.WriteAllText(@"C:\repos\ProyectoFutbol\leagues.txt", json);
+                    b = true;
+                }
+            }
+            catch
+            {
+                b = false;
+            }
+            
             return b;
         }
     }

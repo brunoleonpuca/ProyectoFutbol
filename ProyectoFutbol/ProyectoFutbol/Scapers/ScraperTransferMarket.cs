@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Text;
     using Newtonsoft.Json;
     using NUnit.Framework;
     using ProyectoFutbol.Builders.LeaguesBuilder;
@@ -12,6 +13,7 @@
     {
         private readonly List<League> leagues = new List<League>();
         private readonly DataAccess da = new DataAccess();
+        private StringBuilder leagueBuilder = new StringBuilder();
 
         //[Test]
         //public void CheckConnection()
@@ -75,7 +77,8 @@
                 new Exception(ex.Message);
             }
 
-            Assert.IsTrue(da.WriteLeagues(leagues));
+            Assert.IsTrue(da.WriteLeaguesObjectTextfile(leagues));
+            //Assert.IsTrue(da.WriteLeagues(leagues));
         }
     }
 
