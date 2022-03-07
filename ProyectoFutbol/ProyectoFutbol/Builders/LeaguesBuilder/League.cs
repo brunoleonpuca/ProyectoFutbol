@@ -12,7 +12,7 @@
         public int TeamQuantity { get; set; }
         public int PlayerQuantity { get; set; }
         public string TotalMarketValue { get; set; }
-        public string Continent { get; set; }
+        public string Region { get; set; }
         public string MostValuablePlayer { get; set; }
         public string MostTitlesTeam { get; set; }
 

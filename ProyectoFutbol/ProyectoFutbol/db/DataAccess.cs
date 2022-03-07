@@ -68,7 +68,7 @@
                         MySqlDataReader MyReader;
 
                         string query = @"Insert into proyectofutboldb.leagues(idleague,name,country,continent,playerQuantity,teamQuantity,marketValue) Values('"
-                        + leagues[i].LeagueID + "','" + leagues[i].Name + "','" + leagues[i].Country + "','" + leagues[i].Continent + "','" + leagues[i].PlayerQuantity + "','" + leagues[i].TeamQuantity + "','" + leagues[i].TotalMarketValue + "');";
+                        + leagues[i].LeagueID + "','" + leagues[i].Name + "','" + leagues[i].Country + "','" + leagues[i].Region + "','" + leagues[i].PlayerQuantity + "','" + leagues[i].TeamQuantity + "','" + leagues[i].TotalMarketValue + "');";
 
                         cmd = new MySqlCommand(query, connection);
                         MyReader = cmd.ExecuteReader();

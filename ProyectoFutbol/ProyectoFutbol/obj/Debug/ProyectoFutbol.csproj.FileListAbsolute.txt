@@ -1,5 +1,3 @@
-C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.csproj.CoreCompileInputs.cache
-C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.csproj.AssemblyReference.cache
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\NUnit.VisualStudio.TestAdapter.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Mono.Cecil.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Mono.Cecil.Mdb.dll
@@ -20,6 +18,8 @@ C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\ProyectoFutbol.p
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\BouncyCastle.Crypto.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Dapper.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Google.Protobuf.dll
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\HtmlAgilityPack.CssSelectors.NetCore.dll
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\HtmlAgilityPack.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\K4os.Compression.LZ4.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\K4os.Compression.LZ4.Streams.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\K4os.Hash.xxHash.dll
@@ -37,6 +37,8 @@ C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\ZstdNet.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Dapper.xml
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Google.Protobuf.pdb
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\Google.Protobuf.xml
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\HtmlAgilityPack.pdb
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\HtmlAgilityPack.xml
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\K4os.Compression.LZ4.xml
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\K4os.Compression.LZ4.Streams.xml
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\K4os.Hash.xxHash.xml
@@ -47,5 +49,8 @@ C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\System.Buffers.x
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\System.Memory.xml
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\System.Numerics.Vectors.xml
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.csproj.AssemblyReference.cache
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.csproj.CoreCompileInputs.cache
+C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.csproj.CopyComplete
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.dll
 C:\repos\ProyectoFutbol\ProyectoFutbol\ProyectoFutbol\obj\Debug\ProyectoFutbol.pdb

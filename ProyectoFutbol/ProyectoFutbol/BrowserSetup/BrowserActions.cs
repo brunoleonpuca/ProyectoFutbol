@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
+    using HtmlAgilityPack;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Support.UI;
 
@@ -19,10 +20,7 @@
         
         private WebDriverWait wait(int timeSpan = 5) => new WebDriverWait(driver, TimeSpan.FromSeconds(timeSpan));
 
-        public BrowserActions(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        public BrowserActions(IWebDriver driver) => this.driver = driver;
 
         #region Browser actions
         /// <summary>
@@ -203,12 +201,16 @@
                 elements = WaitUntilElementIsEnabledOrDisplayedASAP(locator);
                 return elements;
             }
-            catch (Exception e)
+            catch
             {
-                if (e is NoSuchElementException) throw new Exception(BrowserActionsExceptionsConsts.ElementsNotFound(locator));
-                throw e;
+                throw new Exception(BrowserActionsExceptionsConsts.ElementsNotFound(locator));
             }
         }
+
+        //protected IList<HtmlNode> FindTryMultipleNodes(string selector)
+        //{
+
+        //}
 
         //protected List<T> GetListOfItems<T>(By locator)
         //{

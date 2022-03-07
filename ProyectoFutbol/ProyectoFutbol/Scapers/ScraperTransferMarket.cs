@@ -41,11 +41,28 @@
                 onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
                 onMainPageActions.ClickSearchButton();
                 leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
-                onLeagueActions.ClickLeague();
             }
 
             Assert.IsTrue(da.WriteLeaguesObjectTextfile(leagues));
             //Assert.IsTrue(da.WriteLeagues(leagues));
+        }
+
+        [Test]
+        public void GetLeaguesWithAgility()
+        {
+            //IList<HtmlNode> nodes = doc.QuerySelectorAll("div .my-class[data-attr=123] > ul li");
+            //HtmlNode node = nodes[0].QuerySelector("p.with-this-class span[data-myattr]");
+
+            for (int i = 0; i < LeagueConsts.consts.Count; i++)
+            {
+                onMainPageActions.ClickModalMessage();
+                onMainPageActions.SendKeysToSearchBar(LeagueConsts.consts[i]);
+                onMainPageActions.ClickSearchButton();
+                leagues.Add(onLeagueActions.GetLeagueInformation(LeagueConsts.consts[i]));
+            }
+
+            Assert.IsTrue(da.WriteLeaguesObjectTextfile(leagues));
+
         }
 
         [Test]
